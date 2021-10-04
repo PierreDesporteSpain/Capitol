@@ -28,4 +28,12 @@ public class TestEngine {
         io.cucumber.core.cli.Main.main(asArgs);
 
     }
+
+	public static TestEngine getINSTANCE() {
+		return INSTANCE;
+	}
+
+	public Configurator getConfigurator() {
+		return configurator;
+	}
 }

@@ -1,0 +1,38 @@
+package com.capitoleconsulting.technicalqainterview.testengine.example.steps;
+
+import java.io.IOException;
+import java.net.MalformedURLException;
+
+import org.junit.Assert;
+
+import com.capitoleconsulting.technicalqainterview.testengine.example.controllers.CommonController;
+
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+
+public class CoinGeckoStep {
+	
+	 private final CommonController commonController = new CommonController();
+	 private String body;
+
+	@Given("Connexion to CoinGecko ok")
+	public void connect() throws MalformedURLException {
+		Assert.assertEquals(200 , this.commonController.getCoinGeckoController().pingService().code());
+	}
+
+	@When("I call the list of listed coin on CoinGecko")
+	public void callListCoin() throws IOException {
+		Assert.assertTrue(this.commonController.getCoinGeckoController().getList().isSuccessful());
+		body = this.commonController.getCoinGeckoController().getList().body().string();
+		Assert.assertTrue(body != null);
+		
+
+	}
+
+	@Then("Verify {string} is listed on CoinGecko")
+	public void checkCoinName(String string) {
+		Assert.assertTrue(body.contains(string));
+	}
+
+}

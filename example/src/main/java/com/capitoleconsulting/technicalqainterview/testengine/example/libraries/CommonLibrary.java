@@ -1,14 +1,18 @@
 package com.capitoleconsulting.technicalqainterview.testengine.example.libraries;
 
-import com.capitoleconsulting.technicalqainterview.testengine.example.controllers.CommonController;
+import java.net.MalformedURLException;
+
+import org.junit.Assert;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.capitoleconsulting.technicalqainterview.testengine.example.model.CoinGeckoInfo;
+import com.capitoleconsulting.technicalqainterview.testengine.example.controllers.CommonController;
+
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.junit.Assert;
 
 public class CommonLibrary {
 
@@ -28,7 +32,7 @@ public class CommonLibrary {
     }
 
     @Given("Connexion to CoinGecko ok")
-    public void connexionToCoinGeckoOk()
+    public void connexionToCoinGeckoOk() throws MalformedURLException
     {
         LOGGER.info("checking if we can access to CoinGecko");
         Assert.assertEquals(200 , this.commonController.getCoinGeckoController().pingService().code());

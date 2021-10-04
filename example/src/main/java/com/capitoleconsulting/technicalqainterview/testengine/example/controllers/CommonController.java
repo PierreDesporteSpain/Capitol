@@ -1,7 +1,7 @@
 package com.capitoleconsulting.technicalqainterview.testengine.example.controllers;
 
 import com.capitoleconsulting.technicalqainterview.testengine.core.TestEngine;
-import com.capitoleconsulting.technicalqainterview.testengine.example.libraries.CommonLibrary;
+
 import lombok.Getter;
 
 public class CommonController {
@@ -21,5 +21,9 @@ public class CommonController {
     public static CommonController getINSTANCE() {
         return INSTANCE;
     }
+
+	public CoinGeckoController getCoinGeckoController() {
+		return coinGeckoController;
+	}
 
 }
