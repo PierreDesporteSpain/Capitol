@@ -23,11 +23,9 @@ public class CoinGeckoStep {
 
 	@When("I call the list of listed coin on CoinGecko")
 	public void callListCoin() throws IOException {
-		Assert.assertTrue(this.commonController.getCoinGeckoController().getList().isSuccessful());
-		body = this.commonController.getCoinGeckoController().getList().body().string();
+		Assert.assertTrue(this.commonController.getCoinGeckoController().getListCoins().isSuccessful());
+		body = this.commonController.getCoinGeckoController().getListCoins().body().string();
 		Assert.assertTrue(body != null);
-		
-
 	}
 
 	@Then("Verify {string} is listed on CoinGecko")

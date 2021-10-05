@@ -24,7 +24,7 @@ public class CoinGeckoController extends DefaultService {
         return super.sendGetToService("/api/v3/ping", new HashMap<>(), new HashMap<>());
     }
     
-    public Response getList() throws MalformedURLException {
+    public Response getListCoins() throws MalformedURLException {
         return super.sendGetToService("/api/v3/coins/list", new HashMap<>(), new HashMap<>());
     }
 }
