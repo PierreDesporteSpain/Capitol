@@ -12,10 +12,12 @@ public class CommonController {
     private static final CommonController INSTANCE = new CommonController();
 
     @Getter private final CoinGeckoController coinGeckoController;
+    @Getter private final CoinPaprikaController coinPaprikaController;
     @Getter public UiController uiController;
 
     public CommonController() {
         this.coinGeckoController = new CoinGeckoController(TestEngine.getINSTANCE().getConfigurator().getConfig().get(CoinGeckoController.class));
+        this.coinPaprikaController = new CoinPaprikaController(TestEngine.getINSTANCE().getConfigurator().getConfig().get(CoinPaprikaController.class));
     }
 
     public static CommonController getINSTANCE() {
@@ -24,6 +26,10 @@ public class CommonController {
 
 	public CoinGeckoController getCoinGeckoController() {
 		return coinGeckoController;
+	}
+	
+	public CoinPaprikaController getCoinPaprikaController() {
+		return coinPaprikaController;
 	}
 
 }
