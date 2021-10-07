@@ -6,8 +6,8 @@ import org.junit.Assert;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.capitoleconsulting.technicalqainterview.testengine.example.model.CoinGeckoInfo;
 import com.capitoleconsulting.technicalqainterview.testengine.example.controllers.CommonController;
+import com.capitoleconsulting.technicalqainterview.testengine.example.model.CoinGeckoInfo;
 
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
@@ -42,4 +42,8 @@ public class CommonLibrary {
     public void open(String url) {
         this.commonController.uiController.open(url);
     }
+
+	public Logger getLOGGER() {
+		return LOGGER;
+	}
 }

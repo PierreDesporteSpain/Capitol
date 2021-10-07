@@ -18,4 +18,10 @@ public class UiController {
         this.driver = new ChromeDriver();
         driver.get(url);
     }
+
+	public WebDriver getDriver() {
+		return driver;
+	}
+    
+    
 }
