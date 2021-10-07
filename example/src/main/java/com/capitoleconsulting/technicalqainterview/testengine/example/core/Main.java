@@ -13,9 +13,9 @@ public class Main {
     public static void main(String[] args) {
         LOGGER.info("Setting all the configuration for the test batch ...");
         if (System.getenv().containsKey("feature") && System.getenv().containsKey("configuration") && System.getenv().containsKey("report"))
-            TestEngine.start(new Configurator(System.getenv().get("configuration"),
-                    System.getenv().get("feature"),
-                    System.getenv().get("report"),
+            TestEngine.start(new Configurator(System.getenv().get("example/configuration/services.xml"),
+                    System.getenv().get("example/feature"),
+                    System.getenv().get("example/report"),
                     CommonLibrary.class.getPackageName()));
         else
             LOGGER.error("Please provide the necessary information");
